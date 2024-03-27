@@ -4,7 +4,7 @@ class ZoomPhonePage{
     }
 
     get getFAQ() : Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get('//strong[text()="FAQ"]');
+        return cy.get('div strong').last();
     }
 
     public scrollToFAQ() : void{

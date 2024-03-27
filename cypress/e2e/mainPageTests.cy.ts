@@ -1,5 +1,6 @@
 import RandomData from "cypress/helpers/RandomData"
 import MainPage from "cypress/pages/MainPage"
+import ProductsPage from "cypress/pages/ProductsPage";
 import SignUpPage from "cypress/pages/SignUpPage"
 
 let email = RandomData.generateRandomEmail();
@@ -23,6 +24,9 @@ describe('tests', () => {
     MainPage.scrollToSeeProductsButton();
     cy.wait(100);
     MainPage.clickSeeProductsButton();
-
+    ProductsPage.getCommunicationsTab.should('be.visible');
+    ProductsPage.getIoTTab.should('be.visible');
+    ProductsPage.getNetworkingTab.should('be.visible');
+    ProductsPage.getComputeTab.should('be.visible');
   })
 })

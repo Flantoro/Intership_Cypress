@@ -28,7 +28,7 @@ class MainPage {
     }
 
     get getZoomPhoneButton() : Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get('//span[text()="Zoom Phone"]');
+        return cy.get('[href="/products/enterprise-integrations-zoom-phone"]').first();
     }
 
     get getSeeProductsButton() : Cypress.Chainable<JQuery<HTMLElement>> {
@@ -36,7 +36,7 @@ class MainPage {
     }
 
     get getMessagingAPIButton() : Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get('//div[@role="menu"]//a[@href="/pricing/messaging"]');
+        return cy.get('[href="/pricing/messaging"]').first();
     }
 
     get getBlogButton() : Cypress.Chainable<JQuery<HTMLElement>> {
@@ -64,7 +64,7 @@ class MainPage {
     }
 
     public clickProductsButton() : void{
-        this.getProductsButton.click();
+        this.getProductsButton.realClick();
     }
 
     public clickSolutionsButton() : void{
@@ -72,11 +72,11 @@ class MainPage {
     }
 
     public clickPricingButton() : void{
-        this.getPricingButton.click();
+        this.getPricingButton.realClick();
     }
 
     public clickResourcesButton() : void{
-        this.getResourcesButton.click();
+        this.getResourcesButton.realClick();
     }
 
     public clickContactUsButton() : void{
