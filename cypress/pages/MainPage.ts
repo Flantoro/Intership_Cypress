@@ -4,11 +4,11 @@ class MainPage {
         return cy.get('[id="onetrust-accept-btn-handler"]');
     }
     get getProductsButton() : Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get('//button[@id="radix-:Rkljm:"]');
+        return cy.get('[id="radix-:Rkljm:"]');
     }
 
     get getSolutionsButton() : Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get('//button[@id="radix-:Rlljm:"]/preceding-sibling::a');
+        return cy.get('[href="/solutions"]').first();
     }
 
     get getPricingButton() : Cypress.Chainable<JQuery<HTMLElement>> {
@@ -28,11 +28,11 @@ class MainPage {
     }
 
     get getZoomPhoneButton() : Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get('//*[@role="menu"]//a[@href="/products/enterprise-integrations-zoom-phone"]');
+        return cy.get('//span[text()="Zoom Phone"]');
     }
 
     get getSeeProductsButton() : Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get('//div[@data-index="0"]//a[@href="/products"]');
+        return cy.get('[href="/products"]').last();
     }
 
     get getMessagingAPIButton() : Cypress.Chainable<JQuery<HTMLElement>> {
@@ -43,12 +43,20 @@ class MainPage {
         return cy.get('//div[@role="menu"]//a[@href="/resources"]');
     }
 
-    get getGetEmailInput() : Cypress.Chainable<JQuery<HTMLElement>> {
+    get getEmailInput() : Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get('[id="email"]');
     }
 
     get getBottomSignUpButton() : Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get('[action="/sign-up"] button');
+    }
+
+    get getExploreText() : Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get('[action="/sign-up"]');
+    }
+
+    public scrollToExploreText() : void {
+        this.getExploreText.scrollIntoView();
     }
 
     public clickAcceptCookies() : void{
@@ -96,11 +104,15 @@ class MainPage {
     }
 
     public fillEmailInput(email : string) : void{
-        this.getGetEmailInput.get(email);
+        this.getEmailInput.type(email);
     }
 
     public clickBottomSignUpButton() : void{
         this.getBottomSignUpButton.click();
+    }
+
+    public scrollToSeeProductsButton() : void{
+        this.getSeeProductsButton.scrollIntoView();
     }
 }
 

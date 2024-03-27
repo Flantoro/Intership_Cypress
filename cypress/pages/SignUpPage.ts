@@ -20,27 +20,31 @@ class SignUpPage{
     }
 
     get getSignUpButton() : Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get('//form[@aria-label="signup-form"]//button[@type="submit"]');
+        return cy.get('[type="submit"]').first();
     }
 
     get getEmailValidationMessage() : Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get('[id="email_message"]');
     }
 
+    get getRecaptchaError() : Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get('[aria-describedby="error"]');
+    }
+
     public fillEmailInput(email : string) : void{
-        this.getEmailInput.get(email);
+        this.getEmailInput.type(email);
     }
 
     public fillFirstNameInput(firstName : string) : void{
-        this.getFirstNameInput.get(firstName);
+        this.getFirstNameInput.type(firstName);
     }
 
     public fillLastNameInput(lastName : string) : void{
-        this.getLastNameInput.get(lastName);
+        this.getLastNameInput.type(lastName);
     }
 
     public fillPasswordInput(password : string) : void{
-        this.getPasswordInput.get(password);
+        this.getPasswordInput.type(password);
     }
 
     public checkTermsAndConditionsCheckbox() : void{

@@ -11,6 +11,10 @@ class ContactUsPage{
         return cy.get('[type="submit"]');
     }
 
+    get getValidationMessage() : Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get('[class="mktoErrorMsg"]');
+    }
+
     public clickSubmitButton() : void{
         this.getSubmitButton.click();
     }

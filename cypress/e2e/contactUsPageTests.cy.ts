@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import MainPage from "cypress/pages/MainPage"
 import ContactUsPage from "cypress/pages/ContactUsPage"
 
@@ -14,9 +12,16 @@ describe('tests', () => {
     cy.viewport(1920, 1080)
   })
 
-  it('Contact Us Button', () => {
+  it('Talk to an expert" form shown on the Contact-Us page', () => {
     MainPage.clickAcceptCookies();
     MainPage.clickContactUsButton();
     ContactUsPage.getContactUsForm.should('be.visible');
+  })
+
+  it('Validation error is shown on the Contact Us page without specifying details', () => {
+    MainPage.clickAcceptCookies();
+    MainPage.clickContactUsButton();
+    ContactUsPage.clickSubmitButton();
+    ContactUsPage.getValidationMessage.should('be.visible');
   })
 })
