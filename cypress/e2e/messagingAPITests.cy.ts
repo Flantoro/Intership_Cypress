@@ -16,6 +16,6 @@ describe('tests', () => {
     MainPage.clickPricingButton();
     MessagingAPIPage.scrollToServicesPart();
     MessagingAPIPage.clickShortCodeButton();
-    MessagingAPIPage.getPriceTable.contains('$0.007');
+    MessagingAPIPage.getPriceTable.should('contain.text', '$0.007');
   })
 })
