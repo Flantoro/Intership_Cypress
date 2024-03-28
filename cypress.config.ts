@@ -1,6 +1,7 @@
 import { defineConfig } from 'cypress'
 
 export default defineConfig({
+  projectId: 'fpd6qk',
   e2e: {
     baseUrl: "https://telnyx.com/",
     defaultCommandTimeout: 10000,
