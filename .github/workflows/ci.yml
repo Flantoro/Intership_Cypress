@@ -1,0 +1,22 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main  # Adjust branch name as needed
+  pull_request:
+    branches:
+      - main  # Adjust branch name as needed
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npx cypress run --record --key 1ff6f4b9-b31d-4eea-9ff6-eff5cae070a8
