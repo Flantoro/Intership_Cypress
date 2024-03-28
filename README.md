@@ -14,4 +14,4 @@
 - Install Cypress using `npm install cypress --save-dev`
 - Run in terminal `npm i` to install all you needed
 - Enter `npx cypress open` to run tests
-- Test files located in e2e>(page_name).cy.ts and pages>(page_name).ts
+- Test files located in e2e>(page_name).cy.ts and pages>(page_name).ts 
