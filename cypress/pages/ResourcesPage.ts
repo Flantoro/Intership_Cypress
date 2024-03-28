@@ -20,11 +20,15 @@ class ResourcesPage{
     }
 
     public fillEmailInput(email : string) : void{
-        this.getEmailInput.get(email);
+        this.getEmailInput.type(email);
     }
 
     public clickSubmitButton() : void{
         this.getSubmitButton.click();
+    }
+
+    public scrollToEmailInput() : void{
+        this.getEmailInput.scrollIntoView();
     }
 }
 

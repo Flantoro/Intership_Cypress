@@ -40,7 +40,7 @@ class MainPage {
     }
 
     get getBlogButton() : Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get('//div[@role="menu"]//a[@href="/resources"]');
+        return cy.get('[href="/resources"]').first();
     }
 
     get getEmailInput() : Cypress.Chainable<JQuery<HTMLElement>> {

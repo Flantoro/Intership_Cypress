@@ -5,5 +5,5 @@
   },
   "dependencies": {
     "cypress-real-events": "^1.12.0"
-  }
+  }  
 }

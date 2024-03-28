@@ -2,19 +2,22 @@ import RandomData from "cypress/helpers/RandomData"
 import MainPage from "cypress/pages/MainPage"
 import SignUpPage from "cypress/pages/SignUpPage"
 
-let email = RandomData.generateRandomEmail();
-let firstName = RandomData.generateRandomString();
-let lastName = RandomData.generateRandomString();
-let password = RandomData.generateRandomPassword();
+let email : string;
+let firstName : string;
+let lastName : string;
+let password : string;
 
 describe('tests', () => {
   beforeEach(() => {
-    cy.visit('https://telnyx.com/')
-    cy.viewport(1920, 1080)
+    email = RandomData.generateRandomEmail();
+    firstName = RandomData.generateRandomString();
+    lastName = RandomData.generateRandomString();
+    password = RandomData.generateRandomPassword();
+    cy.visit('/')
+    MainPage.clickAcceptCookies();
   })
 
   it('Recaptcha message shown after the registration', () => {
-    MainPage.clickAcceptCookies();
     MainPage.clickSignUpButton();
     SignUpPage.fillEmailInput(email);
     SignUpPage.fillFirstNameInput(firstName);
@@ -26,7 +29,6 @@ describe('tests', () => {
   })
 
   it('Velidation error message shown after registration details filled except email', () => {
-    MainPage.clickAcceptCookies();
     MainPage.clickSignUpButton();
     SignUpPage.fillFirstNameInput(firstName);
     SignUpPage.fillLastNameInput(lastName);

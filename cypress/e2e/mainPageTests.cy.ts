@@ -3,16 +3,16 @@ import MainPage from "cypress/pages/MainPage"
 import ProductsPage from "cypress/pages/ProductsPage";
 import SignUpPage from "cypress/pages/SignUpPage"
 
-let email = RandomData.generateRandomEmail();
+let email : string;
 
 describe('tests', () => {
   beforeEach(() => {
-    cy.visit('https://telnyx.com/')
-    cy.viewport(1920, 1080)
+    email = RandomData.generateRandomEmail();
+    cy.visit('/')
+    MainPage.clickAcceptCookies();
   })
 
-  xit('Verify the email input on the main page', () => {
-    MainPage.clickAcceptCookies();
+  it('Verify the email input on the main page', () => {
     MainPage.scrollToExploreText();
     MainPage.fillEmailInput(email);
     MainPage.clickBottomSignUpButton();
@@ -20,7 +20,6 @@ describe('tests', () => {
   })
 
   it('Product sections are displayed on the Products page ', () => {
-    MainPage.clickAcceptCookies();
     MainPage.scrollToSeeProductsButton();
     cy.wait(100);
     MainPage.clickSeeProductsButton();
