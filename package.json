@@ -5,7 +5,8 @@
   "headed": false,
   "scripts": {
     "cy:run": "cypress run",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:tests-with-allure-headless": "npx cypress run --headless --env allure=true --browser chrome"
   },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.40.2",
