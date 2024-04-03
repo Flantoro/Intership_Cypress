@@ -1,22 +1,28 @@
-name: ci
-
-on:
-  push:
-    branches:
-      - main  # Adjust branch name as needed
-  pull_request:
-    branches:
-      - main  # Adjust branch name as needed
-
+name: End-to-end tests
+on: [push]
+ 
 jobs:
-  cypress:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    cypress-e2e:
+        runs-on: ubuntu-latest
+        container: cypress/browsers:latest
 
-      - name: Install dependencies
-        run: npm install
+        steps:
+            - uses: actions/checkout@v2
+            - name: Run Cypress tests
+              uses: cypress-io/github-action@v2
+              with:
+                  command: npm run cy:tests-with-allure-headless
 
-      - name: Run Cypress tests
-        run: npx cypress run --record --key 1ff6f4b9-b31d-4eea-9ff6-eff5cae070a8
+            - name: Generate Allure Report
+              uses: simple-elf/allure-report-action@master
+              if: always()
+              with:
+                  allure_results: allure-results
+
+            - name: Deploy report to Github Pages
+              if: always()
+              uses: peaceiris/actions-gh-pages@v2
+              env:
+                  PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  PUBLISH_BRANCH: allure-report
+                  PUBLISH_DIR: allure-report

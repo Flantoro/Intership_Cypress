@@ -1,9 +1,9 @@
-import RandomData from "cypress/helpers/RandomData"
-import MainPage from "cypress/pages/MainPage"
-import ProductsPage from "cypress/pages/ProductsPage";
-import SignUpPage from "cypress/pages/SignUpPage"
+import RandomData from "../helpers/RandomData"
+import MainPage from "../pages/MainPage"
+import ProductsPage from "../pages/ProductsPage";
+import SignUpPage from "../pages/SignUpPage"
 
-let email : string;
+let email;
 
 describe('tests', () => {
   beforeEach(() => {
@@ -20,9 +20,6 @@ describe('tests', () => {
   })
 
   it('Product sections are displayed on the Products page ', () => {
-    MainPage.scrollToSeeProductsButton();
-    cy.wait(100);
-    MainPage.clickSeeProductsButton();
     ProductsPage.getCommunicationsTab.should('be.visible');
     ProductsPage.getIoTTab.should('be.visible');
     ProductsPage.getNetworkingTab.should('be.visible');

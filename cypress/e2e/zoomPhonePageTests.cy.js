@@ -1,5 +1,5 @@
-import MainPage from "cypress/pages/MainPage"
-import ZoomPhonePage from "cypress/pages/ZoomPhonePage"
+import MainPage from "../pages/MainPage"
+import ZoomPhonePage from "../pages/ZoomPhonePage"
 
 describe('tests', () => {
   beforeEach(() => {

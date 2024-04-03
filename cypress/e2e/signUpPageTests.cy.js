@@ -1,11 +1,11 @@
-import RandomData from "cypress/helpers/RandomData"
-import MainPage from "cypress/pages/MainPage"
-import SignUpPage from "cypress/pages/SignUpPage"
+import RandomData from "../helpers/RandomData"
+import MainPage from "../pages/MainPage"
+import SignUpPage from "../pages/SignUpPage"
 
-let email : string;
-let firstName : string;
-let lastName : string;
-let password : string;
+let email;
+let firstName;
+let lastName;
+let password;
 
 describe('tests', () => {
   beforeEach(() => {

@@ -137,8 +137,5 @@ dist
 
 # SvelteKit build / generate output
 .svelte-kit
-
-cypress/results/*
-cypress/reports/*
-cypress/screenshots/*
-cypress/videos/*
+allure-report
+allure-results

@@ -1,5 +1,5 @@
-import MainPage from "cypress/pages/MainPage"
-import SolutionsPage from "cypress/pages/SolutionsPage"
+import MainPage from "../pages/MainPage"
+import SolutionsPage from "../pages/SolutionsPage"
 
 describe('tests', () => {
   beforeEach(() => {

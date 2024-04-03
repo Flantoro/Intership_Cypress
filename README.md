@@ -15,3 +15,5 @@
 - Run in terminal `npm i` to install all you needed
 - Enter `npx cypress open` to run tests
 - Test files located in e2e>(page_name).cy.ts and pages>(page_name).ts 
+
+To run Cypress tests in unheadless mode update 'package.json' and set the value of the 'header' property to 'true' (currently it set as 'false')

@@ -1,8 +1,8 @@
-import MainPage from "cypress/pages/MainPage"
-import RandomData from "cypress/helpers/RandomData";
-import ResourcesPage from "cypress/pages/ResourcesPage";
+import MainPage from "../pages/MainPage"
+import RandomData from "../helpers/RandomData";
+import ResourcesPage from "../pages/ResourcesPage";
 
-let email : string;
+let email;
 
 describe('tests', () => {
   beforeEach(() => {
@@ -15,7 +15,6 @@ describe('tests', () => {
     MainPage.getResourcesButton.should('be.visible').and('be.enabled');
     MainPage.clickResourcesButton();
     MainPage.clickBlogButton();
-    MainPage.clickResourcesButton();
     ResourcesPage.clickFirstBlogButton();
     ResourcesPage.scrollToEmailInput();
     ResourcesPage.fillEmailInput(email);
